@@ -85,6 +85,7 @@ public class NodeProgressView extends View {
      */
     public void setNodeProgressAdapter(NodeProgressAdapter nodeProgressAdapter) {
         this.nodeProgressAdapter = nodeProgressAdapter;
+        requestLayout();
     }
 
 
