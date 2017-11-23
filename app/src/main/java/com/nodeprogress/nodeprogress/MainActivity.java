@@ -3,9 +3,10 @@ package com.nodeprogress.nodeprogress;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.nodeprogress.nodeprogress.view.LogisticsData;
-import com.nodeprogress.nodeprogress.view.NodeProgressAdapter;
-import com.nodeprogress.nodeprogress.view.NodeProgressView;
+
+import com.czm.nodeview.LogisticsData;
+import com.czm.nodeview.NodeProgressAdapter;
+import com.czm.nodeview.NodeProgressView;
 
 import java.util.ArrayList;
 import java.util.List;
