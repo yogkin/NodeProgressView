@@ -122,16 +122,16 @@ public class BaseNodeProgressView extends View {
 
             canvas.drawCircle(i*nodeInterval+nodeInterval/2,top+width/2,nodeRadius,mPaint);
 
-//            //文字换行
-//            TextPaint textPaint = new TextPaint();
-//            textPaint.setColor(getResources().getColor(R.color.nodeTextColor));
-//            textPaint.setTextSize(35.0F);
-//            textPaint.setAntiAlias(true);
-//            StaticLayout layout = new StaticLayout(((LogisticsData)data.get(i)).getContext()+"", textPaint, (int) (dWidth * 0.8), Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, true);
-//            canvas.save();
-//            canvas.translate(left * 2 + nodeRadius * 2, nodeRadius/2);
-//            layout.draw(canvas);
-//            canvas.restore();//重置
+            //文字换行
+            TextPaint textPaint = new TextPaint();
+            textPaint.setColor(getResources().getColor(R.color.nodeTextColor));
+            textPaint.setTextSize(35.0F);
+            textPaint.setAntiAlias(true);
+            StaticLayout layout = new StaticLayout(((LogisticsData)data.get(i)).getContext()+"", textPaint, (int) (nodeInterval*0.9), Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, true);
+            canvas.save();
+            canvas.translate(i*nodeInterval+nodeInterval/2-nodeInterval/4-left, nodeRadius/2+top+50);
+            layout.draw(canvas);
+            canvas.restore();//重置
         }
 
 
