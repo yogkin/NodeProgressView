@@ -3,9 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/NodeProgressView.iml" filepath="$PROJECT_DIR$/.idea/NodeProgressView.iml" />
-      <module fileurl="file://D:\WebStromProject\NodeProgressView\Nodeprogress.iml" filepath="D:\WebStromProject\NodeProgressView\Nodeprogress.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NodeProgressView.iml" filepath="$PROJECT_DIR$/.idea/NodeProgressView.iml" />
+      <module fileurl="file://D:/WebStromProject/NodeProgressView/Nodeprogress.iml" filepath="D:/WebStromProject/NodeProgressView/Nodeprogress.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\WebStromProject\NodeProgressView\app\app.iml" filepath="D:\WebStromProject\NodeProgressView\app\app.iml" />
+      <module fileurl="file://D:/WebStromProject/NodeProgressView/app/app.iml" filepath="D:/WebStromProject/NodeProgressView/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nodeview/nodeview.iml" filepath="$PROJECT_DIR$/nodeview/nodeview.iml" />
       <module fileurl="file://$PROJECT_DIR$/nodeview/nodeview.iml" filepath="$PROJECT_DIR$/nodeview/nodeview.iml" />
     </modules>
   </component>
