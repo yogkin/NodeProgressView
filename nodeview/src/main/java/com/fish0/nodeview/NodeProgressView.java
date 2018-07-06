@@ -1,4 +1,4 @@
-package com.czm.nodeview;
+package com.fish0.nodeview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,7 +10,6 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.WindowManager;
-
 
 import java.util.List;
 
@@ -54,8 +53,8 @@ public class NodeProgressView extends View {
         super(context, attrs);
         this.context = context;
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.NodeProgressView);
-        width = typedArray.getDimension(R.styleable.NodeProgressView_npvWidth, 5);
-        nodeRadius = typedArray.getDimension(R.styleable.NodeProgressView_npvNodeRadius, 10);
+        width = typedArray.getDimension(R.styleable.NodeProgressView_nodeWidth, 5);
+        nodeRadius = typedArray.getDimension(R.styleable.NodeProgressView_nodeRadius, 10);
         init();
     }
 

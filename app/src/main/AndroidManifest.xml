@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".LogistcsNodeActivity" android:label="物流节点"/>
+        <activity android:name=".BaseNodeActivity" android:label="流程节点"/>
     </application>
 
 </manifest>

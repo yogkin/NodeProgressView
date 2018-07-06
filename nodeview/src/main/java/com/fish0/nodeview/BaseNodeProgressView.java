@@ -1,4 +1,4 @@
-package com.czm.nodeview;
+package com.fish0.nodeview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,6 +11,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.WindowManager;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.util.List;
 
 /**
@@ -43,6 +47,8 @@ public class BaseNodeProgressView extends View {
     int dWidth;
     int dHeight;
 
+    //选中点位置
+    private int mSelectIndex;
 
     public BaseNodeProgressView(Context context) {
         super(context);
@@ -54,9 +60,9 @@ public class BaseNodeProgressView extends View {
         super(context, attrs);
         this.context = context;
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.BaseNodeProgressView);
-        width = typedArray.getDimension(R.styleable.BaseNodeProgressView_bnpvWidth, 5);
-        nodeRadius = typedArray.getDimension(R.styleable.BaseNodeProgressView_bnpvRodeRadius, 10);
-        mIsRotate = typedArray.getBoolean(R.styleable.BaseNodeProgressView_bnpvRotate, true);
+        width = typedArray.getDimension(R.styleable.BaseNodeProgressView_lineWidth, 5);
+        nodeRadius = typedArray.getDimension(R.styleable.BaseNodeProgressView_radius, 10);
+        mIsRotate = typedArray.getBoolean(R.styleable.BaseNodeProgressView_rotate, true);
         typedArray.recycle();
         init();
     }
@@ -90,6 +96,31 @@ public class BaseNodeProgressView extends View {
         requestLayout();
     }
 
+    /**
+     * 设置选中点坐标
+     */
+    public void setNodeSelectIndex(int selectIndex) {
+        this.mSelectIndex = selectIndex;
+        requestLayout();
+    }
+
+    /**
+     * 设置节点方向
+     */
+
+    public void setNodeOricentalV() {
+        this.mIsRotate = true;
+        requestLayout();
+    }
+   /**
+     * 设置节点方向
+     */
+
+    public void setNodeOricentalH() {
+        this.mIsRotate = false;
+        requestLayout();
+    }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -106,21 +137,33 @@ public class BaseNodeProgressView extends View {
         }
 
 
-
-
     }
 
     private void drawRotateH(Canvas canvas, List data) {
         Paint mPaint = new Paint();
-        mPaint.setColor(getResources().getColor(R.color.nodeTextColor));
+
+        mPaint.setAlpha(88);
         canvas.drawRect(left,top,dWidth-left,width + top,mPaint);
 
         //计算出每一个点间距
         nodeInterval = (dWidth-left*2) / nodeProgressAdapter.getCount();
 
         for (int i = 0; i < nodeProgressAdapter.getCount(); i++) {
+            mPaint.reset();
+            if (i==mSelectIndex) {
+                mPaint.setColor(getResources().getColor(R.color.nodeTextColor));
+                //画圆
+                canvas.drawCircle(i*nodeInterval+nodeInterval/2+left, top+width/2, nodeRadius + 2, mPaint);
+                mPaint.setStyle(Paint.Style.STROKE);//设置为空心
+                mPaint.setStrokeWidth(8);//空心宽度
+                mPaint.setAlpha(88);
+                canvas.drawCircle(i*nodeInterval+nodeInterval/2+left, top+width/2, nodeRadius + 4, mPaint);
+            }else {
+                mPaint.setColor(getResources().getColor(R.color.nodeColor));
+                canvas.drawCircle(i*nodeInterval+nodeInterval/2+left,top+width/2,nodeRadius,mPaint);
+            }
 
-            canvas.drawCircle(i*nodeInterval+nodeInterval/2,top+width/2,nodeRadius,mPaint);
+
 
             //文字换行
             TextPaint textPaint = new TextPaint();
@@ -129,7 +172,7 @@ public class BaseNodeProgressView extends View {
             textPaint.setAntiAlias(true);
             StaticLayout layout = new StaticLayout(((LogisticsData)data.get(i)).getContext()+"", textPaint, (int) (nodeInterval*0.9), Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, true);
             canvas.save();
-            canvas.translate(i*nodeInterval+nodeInterval/2-nodeInterval/4-left, nodeRadius/2+top+50);
+            canvas.translate(i*nodeInterval+nodeInterval/2-nodeInterval/4, nodeRadius/2+top+50);
             layout.draw(canvas);
             canvas.restore();//重置
         }

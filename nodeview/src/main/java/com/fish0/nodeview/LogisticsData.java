@@ -1,4 +1,4 @@
-package com.czm.nodeview;
+package com.fish0.nodeview;
 
 public class LogisticsData {
 

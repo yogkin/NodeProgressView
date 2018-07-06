@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.nodeprogress.nodeprogress.BaseNodeActivity">
+
+
+    <com.fish0.nodeview.BaseNodeProgressView
+        android:id="@+id/npv_NodeProgressView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lineWidth="2dp"
+        app:radius="8dp"
+        app:rotate="false"
+        />
+
+</HorizontalScrollView>
