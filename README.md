@@ -2,14 +2,14 @@
 ## 关于 ##
 
 本项目fork https://github.com/aesion/NodeProgressView 
-主要加入一下内容：
-###1、加入jitpack 依赖
-###2、修复一个设置adapter不生效的bug
-###3、加入一个流程节点node类 详细看效果图
+## 主要加入一下内容：
+### 1、加入jitpack 依赖
+### 2、修复一个设置adapter不生效的bug
+### 3、加入一个流程节点node类 详细看效果图
 
 # NodeProgressView #
 ![](https://github.com/aesion/NodeProgressView/blob/master/image/S60628-152145.jpg)
-![](https://github.com/aesion/NodeProgressView/blob/master/image/Screenshot_20180706-110501.png)
+![](https://github.com/yogkin/NodeProgressView/blob/master/image/Screenshot_20180706-110501.png)
 ![](https://github.com/aesion/NodeProgressView/blob/master/image/Screenshot_20180706-110542.png)
 
 
