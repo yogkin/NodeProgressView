@@ -9,8 +9,9 @@
 
 # NodeProgressView #
 ![](https://github.com/aesion/NodeProgressView/blob/master/image/S60628-152145.jpg)
+![](https://github.com/yogkin/NodeProgressView/blob/master/image/Screenshot_20180706-110542.png)
 ![](https://github.com/yogkin/NodeProgressView/blob/master/image/Screenshot_20180706-110501.png)
-![](https://github.com/aesion/NodeProgressView/blob/master/image/Screenshot_20180706-110542.png)
+
 
 
 
