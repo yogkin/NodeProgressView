@@ -33,7 +33,7 @@ maven { url 'https://jitpack.io' }
 ##在dependency中添加依赖
 
 ```groovy
-implementation 'com.github.yogkin:NodeProgressView:1.0.2'
+implementation 'com.github.yogkin:NodeProgressView:Latest release'
 ```
 
 
