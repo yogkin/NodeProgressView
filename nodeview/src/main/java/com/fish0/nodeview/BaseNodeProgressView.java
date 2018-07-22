@@ -3,6 +3,7 @@ package com.fish0.nodeview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.Layout;
 import android.text.StaticLayout;
@@ -25,6 +26,7 @@ import java.util.List;
  */
 public class BaseNodeProgressView extends View {
 
+    private  int mLineColor;
     private boolean mIsRotate;
     float width;
     float nodeRadius;
@@ -49,6 +51,7 @@ public class BaseNodeProgressView extends View {
 
     //选中点位置
     private int mSelectIndex;
+    private int mTextColor;
 
     public BaseNodeProgressView(Context context) {
         super(context);
@@ -63,6 +66,8 @@ public class BaseNodeProgressView extends View {
         width = typedArray.getDimension(R.styleable.BaseNodeProgressView_lineWidth, 5);
         nodeRadius = typedArray.getDimension(R.styleable.BaseNodeProgressView_radius, 10);
         mIsRotate = typedArray.getBoolean(R.styleable.BaseNodeProgressView_rotate, true);
+        mLineColor = typedArray.getColor(R.styleable.BaseNodeProgressView_lineColor, Color.BLUE);
+        mTextColor = typedArray.getColor(R.styleable.BaseNodeProgressView_textColor, Color.BLUE);
         typedArray.recycle();
         init();
     }
@@ -150,9 +155,11 @@ public class BaseNodeProgressView extends View {
 
         for (int i = 0; i < nodeProgressAdapter.getCount(); i++) {
             mPaint.reset();
-            if (i==mSelectIndex) {
-                mPaint.setColor(getResources().getColor(R.color.nodeTextColor));
+            if (i<=mSelectIndex) {
+                mPaint.setColor(mLineColor);
                 //画圆
+                canvas.drawRect(left,top,nodeInterval*(mSelectIndex+1)+nodeRadius,width + top,mPaint);
+
                 canvas.drawCircle(i*nodeInterval+nodeInterval/2+left, top+width/2, nodeRadius + 2, mPaint);
                 mPaint.setStyle(Paint.Style.STROKE);//设置为空心
                 mPaint.setStrokeWidth(8);//空心宽度
@@ -165,9 +172,10 @@ public class BaseNodeProgressView extends View {
 
 
 
+
             //文字换行
             TextPaint textPaint = new TextPaint();
-            textPaint.setColor(getResources().getColor(R.color.nodeTextColor));
+            textPaint.setColor(mTextColor);
             textPaint.setTextSize(35.0F);
             textPaint.setAntiAlias(true);
             StaticLayout layout = new StaticLayout(((LogisticsData)data.get(i)).getContext()+"", textPaint, (int) (nodeInterval*0.9), Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, true);

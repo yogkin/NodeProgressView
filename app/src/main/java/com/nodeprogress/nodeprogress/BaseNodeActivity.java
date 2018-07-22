@@ -43,7 +43,7 @@ public class BaseNodeActivity extends AppCompatActivity {
             }
         });
 
-        nodeProgressView.setNodeSelectIndex(3);
+        nodeProgressView.setNodeSelectIndex(4);
         nodeProgressView.setNodeOricentalH();
 
     }

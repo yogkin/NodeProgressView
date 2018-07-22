@@ -8,5 +8,7 @@
         <attr name="lineWidth" format="dimension"/>
         <attr name="rotate" format="boolean"/>
         <attr name="radius" format="dimension"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="textColor" format="color"/>
     </declare-styleable>
 </resources>
