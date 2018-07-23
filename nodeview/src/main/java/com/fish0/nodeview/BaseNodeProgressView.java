@@ -166,13 +166,21 @@ public class BaseNodeProgressView extends View {
 
 
             //文字换行
+            String str = ((LogisticsData) data.get(i)).getContext() + "";
             TextPaint textPaint = new TextPaint();
             textPaint.setColor(getResources().getColor(R.color.nodeTextColor));
             textPaint.setTextSize(35.0F);
+            float measureText = textPaint.measureText(str);
+
+
+
             textPaint.setAntiAlias(true);
-            StaticLayout layout = new StaticLayout(((LogisticsData)data.get(i)).getContext()+"", textPaint, (int) (nodeInterval*0.9), Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, true);
+            StaticLayout layout = new StaticLayout(str, textPaint, (int) (nodeInterval*0.9), Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, true);
+            if (measureText>layout.getWidth()) {
+                measureText=layout.getWidth();
+            }
             canvas.save();
-            canvas.translate(i*nodeInterval+nodeInterval/2-nodeInterval/4, nodeRadius/2+top+50);
+            canvas.translate(i*nodeInterval+left+(nodeInterval-measureText)/2, nodeRadius/2+top+40);
             layout.draw(canvas);
             canvas.restore();//重置
         }
