@@ -16,6 +16,8 @@
         app:lineWidth="2dp"
         app:radius="8dp"
         app:rotate="false"
+        app:lineColor="#FF9654"
+        app:textColor="#666666"
         />
 
 </HorizontalScrollView>
