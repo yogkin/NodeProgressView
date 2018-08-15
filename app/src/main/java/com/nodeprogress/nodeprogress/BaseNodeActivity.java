@@ -24,7 +24,6 @@ public class BaseNodeActivity extends AppCompatActivity {
         final ArrayList<LogisticsData> logisticsDatas = new ArrayList<>();
         logisticsDatas.add(new LogisticsData().setContext("填写审核资料并提交"));
         logisticsDatas.add(new LogisticsData().setContext("交付押金"));
-        logisticsDatas.add(new LogisticsData().setContext("上传资料"));
         logisticsDatas.add(new LogisticsData().setContext("申请成功"));
 
 
@@ -42,8 +41,9 @@ public class BaseNodeActivity extends AppCompatActivity {
             }
         });
 
-        nodeProgressView.setNodeSelectIndex(3);
-        nodeProgressView.setNodeOricentalV();
+        nodeProgressView.setNodeSelectIndex(2);
+        nodeProgressView.setNodeAniTime(3000);
+        nodeProgressView.setNodeOricentalH();
 
     }
 }
